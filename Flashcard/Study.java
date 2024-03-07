@@ -30,8 +30,7 @@ public class Study implements App {
             return;
         } else {
             deckOrganizer.printAllDecks();
-            System.out.println("\n1. Үзүүлэлтээ харах");
-            System.out.println("0: Буцах");
+            System.out.println("\n0: Буцах");
         }
     }
 

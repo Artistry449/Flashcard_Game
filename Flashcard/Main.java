@@ -4,17 +4,16 @@ import java.util.Scanner;
 
 public class Main {
 
-    App apps[] = new App[4];
+    App apps[] = new App[3];
 
     public Main() {
         apps[1] = new Study();
-        apps[2] = new Play();
-        apps[3] = new Manage();
+        apps[2] = new Manage();
     }
 
     public void Menu() {
         System.err.println("\n\n-----FLASHCARD GAME-----\n");
-        System.out.println("Flashcard тоглоомд тавтай морил!");
+        System.out.println("Flashcard тоглоомд тавтай морил!\n");
         for (int i = 1; i < apps.length; i++) {
             System.err.println(i + ": " + apps[i].getCaption());
         }
@@ -39,11 +38,8 @@ public class Main {
                 // Study
                 main.apps[1].start();
             } else if (userChoice == 2) {
-                // Play
-                main.apps[2].start();
-            } else if (userChoice == 3) {
                 // Manage
-                main.apps[3].start();
+                main.apps[2].start();
             } else if (userChoice == 0) {
                 System.out.println("\nBye Bye!\n");
                 break;

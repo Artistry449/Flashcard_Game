@@ -7,7 +7,5 @@ public interface FileManager_inter {
 
     public void writeFile(String fileContent);
 
-    public void deleteFile();
-
     public void clearFileData();
 }

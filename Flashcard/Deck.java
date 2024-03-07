@@ -14,8 +14,6 @@ public class Deck implements Deck_inter {
 
     public Deck(String name) {
         this.name = name;
-        // this.purpose = purpose;
-        // this.description = description;
     }
 
     public String getName() {
@@ -50,10 +48,6 @@ public class Deck implements Deck_inter {
 
     public ArrayList<Card> getCards() {
         return cards;
-    }
-
-    public void fetchCards() {
-
     }
 
     public Card findCard(String cardQuestion) {

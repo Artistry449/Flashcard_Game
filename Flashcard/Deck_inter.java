@@ -1,21 +1,21 @@
 package Flashcard;
 
+import java.util.ArrayList;
+
 public interface Deck_inter {
     public String getName();
 
-    // public String getPurpose();
-
-    // public String getDescription();
-
-    // public void editName(String new_name);
-
-    // public void editPurpose(String new_purpose);
-
-    // public void editDescription(String new_description);
+    public void editName(String new_name);
 
     public int getDeckSize();
 
     public void addCard(Card card);
 
     public void deleteCard(String cardName);
+
+    public void printAllCards();
+
+    public ArrayList<Card> getCards();
+
+    public Card findCard(String cardQuestion);
 }

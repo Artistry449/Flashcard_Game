@@ -8,14 +8,14 @@ public class Manage implements App {
     DeckOrganizer deckOrganizer = new DeckOrganizer();
     String userChoice;
 
-    String caption = "Тохиргоо!";
+    String caption = "Ширээний цуглуулгыг өөрчлөх!";
 
     public String getCaption() {
         return caption;
     }
 
     public void printMenu() {
-        System.out.println("\n-----Тохиргоо хэсэг-----\n");
+        System.out.println("\n-----Ширээний цуглуулгыг өөрчлөх хэсэг-----\n");
 
         if (deckOrganizer.getDecksSize() == 0) {
             System.out.println("Таньд одоогоор ширээ байхгүй байна");
@@ -63,7 +63,17 @@ public class Manage implements App {
 
             userChoice = scanner.nextLine();
 
-            if (userChoice.equals("B")) {
+            if (userChoice.equals("A")) {
+                System.out.print("Таны үүсгэх ширээний нэр: ");
+
+                String newDeckName = scanner.nextLine();
+
+                deckOrganizer.createDeck(newDeckName);
+
+                System.out.println("Ширээ амжилттай үүслээ!");
+
+                deckOrganizer.pushDecksToDB();
+            } else if (userChoice.equals("B")) {
                 break;
                 // return;
             } else if (deckOrganizer.findDeck(userChoice) != null) {
@@ -90,6 +100,8 @@ public class Manage implements App {
                     deck.editName(userChoice);
 
                     System.out.println("Ширээний нэр амжилттай солигдлоо!");
+
+                    deckOrganizer.pushDecksToDB();
                 }
 
                 // 2. Ширээг устгах
@@ -108,6 +120,8 @@ public class Manage implements App {
                     } else if (userChoice.equals("n")) {
                         System.out.println("Ширээ устгагдах хүсэлт цуцлагдлаа!");
                     }
+                    deckOrganizer.pushDecksToDB();
+                    deckOrganizer.pushCardsToDB();
                 }
 
                 // 3. Картнуудыг нь засах
@@ -132,6 +146,8 @@ public class Manage implements App {
                         deck.addCard(new Card(question, answer));
 
                         System.out.println("Уг ширээ рүү шинэ карт амжилттай нэмэгдлээ!\n");
+
+                        deckOrganizer.pushCardsToDB();
                     }
                     // 2. Картны мэдээллийг өөрчлөх
 
@@ -183,7 +199,7 @@ public class Manage implements App {
                                         System.out.println("Та меню-ээс сонгоно уу!");
                                     }
                                 }
-
+                                deckOrganizer.pushCardsToDB();
                             } else if (userChoice.equals("0"))
                                 break;
                             else {
@@ -200,12 +216,13 @@ public class Manage implements App {
                         deck.printAllCards();
                         System.out.println("\n0: Буцах\n");
 
-                        System.out.print("Таны сонголт: ");
+                        System.out.print("Таны сонголт(Картны нэрийг оруулна уу): ");
                         userChoice = scanner.nextLine();
 
                         if (deck.findCard(userChoice) != null) {
                             deck.deleteCard(userChoice);
 
+                            deckOrganizer.pushCardsToDB();
                             System.out.println("Карт амжилттай устгагдлаа!");
                         }
 
@@ -218,6 +235,6 @@ public class Manage implements App {
                 }
             }
         }
-        deckOrganizer.pushToDB();
+        // deckOrganizer.pushToDB();
     }
 }

@@ -1,9 +1,13 @@
 package Flashcard;
 
 public interface Card_inter {
-    public void createCard();
+    public String getQuestion();
 
-    public void updateCard();
+    public String getAnswer();
 
-    public void deleteCard();
+    public boolean isEqualAnswer(String user_answer);
+
+    public void editQuestion(String new_question);
+
+    public void editAnswer(String new_answer);
 }

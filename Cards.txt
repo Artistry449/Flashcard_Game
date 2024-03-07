@@ -1,10 +1,10 @@
-Duck/shine asuult=shine hariult
-Duck/mongol=mongol2
-Duck/ymr negen asuult=ymr negen hariult
-Deck3/question1=answer1
-Deck3/question1=answer1
-Deck3/question1=answer1
-Deck3/hello=world
-shine shiree/shine asuult=shine hariult
-aa/qwe=erd
-aa/qwe=qwe
+English Words/apple=alim
+English Words/elephant=zaan
+English Words/tiger=bar
+English Words/dragon=luu
+English Words/moon=sar
+Daily words/Sun=nar
+Daily words/check=shalgah
+Daily words/dog=nohoi
+Daily words/cat=muur
+

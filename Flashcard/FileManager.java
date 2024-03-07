@@ -53,10 +53,6 @@ public class FileManager implements FileManager_inter {
         }
     }
 
-    public void deleteFile() {
-
-    }
-
     public void clearFileData() {
         try {
             FileWriter fileWriterObj = new FileWriter(this.fileName);

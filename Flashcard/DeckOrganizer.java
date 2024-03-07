@@ -95,6 +95,36 @@ public class DeckOrganizer implements DeckOrganizer_inter {
         fileManager1.writeFile(data);
     }
 
+    public void pushDecksToDB() {
+        String data = "";
+
+        // Decks-ийн дата-г хуулах
+        for (Deck deck : decks) {
+            data += deck.getName() + "\n";
+        }
+        fileManager.clearFileData();
+        fileManager.writeFile(data);
+    }
+
+    public void pushCardsToDB() {
+        // Cards-ийн дата-г хуулах
+
+        String data = "";
+
+        for (Deck deck : decks) {
+            ArrayList<Card> cards = deck.getCards();
+            for (Card card : cards) {
+                String toPutDeckName = deck.getName() + "/";
+                String question = card.getQuestion();
+                String answer = card.getAnswer();
+
+                data += toPutDeckName + question + "=" + answer + "\n";
+            }
+        }
+        fileManager1.clearFileData();
+        fileManager1.writeFile(data);
+    }
+
     public void printAllDecks() {
         for (int i = 0; i < decks.size(); i++) {
             System.out.println(i + 1 + ": " + decks.get(i).getName());
