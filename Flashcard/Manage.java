@@ -63,15 +63,7 @@ public class Manage implements App {
 
             userChoice = scanner.nextLine();
 
-            if (userChoice.equals("A")) {
-                System.out.print("Таны үүсгэх ширээний нэр: ");
-
-                String newDeckName = scanner.nextLine();
-
-                deckOrganizer.createDeck(newDeckName);
-
-                System.out.println("Ширээ амжилттай үүслээ!");
-            } else if (userChoice.equals("B")) {
+            if (userChoice.equals("B")) {
                 break;
                 // return;
             } else if (deckOrganizer.findDeck(userChoice) != null) {

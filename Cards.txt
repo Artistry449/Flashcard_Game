@@ -7,4 +7,4 @@ Deck3/question1=answer1
 Deck3/hello=world
 shine shiree/shine asuult=shine hariult
 aa/qwe=erd
-
+aa/qwe=qwe

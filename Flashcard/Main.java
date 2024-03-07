@@ -18,6 +18,7 @@ public class Main {
         for (int i = 1; i < apps.length; i++) {
             System.err.println(i + ": " + apps[i].getCaption());
         }
+
         System.out.println("\n0: Гарах");
     }
 
