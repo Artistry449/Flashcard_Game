@@ -75,6 +75,7 @@ public class Manage implements App {
                 break;
                 // return;
             } else if (deckOrganizer.findDeck(userChoice) != null) {
+                Deck deck = deckOrganizer.findDeck(userChoice);
 
                 // Хэрэглэгчийн сонгосон ширээний нэрийг хадгалах
                 String userDeckChoice = userChoice;
@@ -124,6 +125,7 @@ public class Manage implements App {
 
                     insideCardMenu(userDeckChoice);
 
+                    System.out.print("Таны сонголт: ");
                     userChoice = scanner.nextLine();
 
                     // 1. Шинэ карт нэмэх
@@ -141,8 +143,63 @@ public class Manage implements App {
                     }
                     // 2. Картны мэдээллийг өөрчлөх
 
-                    // 3. Карт устгах
+                    else if (userChoice.equals("2")) {
+                        System.out.print("\033[H\033[2J");
+                        for (;;) {
 
+                            deckOrganizer.findDeck(userDeckChoice).printAllCards();
+                            System.out.println("\n0: Буцах");
+
+                            System.out.print("\nТаны сонголт(Картны нэрийг эсвэл меню-ээс сонгоно уу): ");
+                            userChoice = scanner.nextLine();
+
+                            Card card = deckOrganizer.findDeck(userDeckChoice).findCard(userChoice);
+                            if (card != null) {
+                                // System.out.print("\033[H\033[2J");
+
+                                for (;;) {
+                                    System.out.print("\033[H\033[2J");
+
+                                    System.out.println("Картны асуулт: " + card.getQuestion());
+                                    System.out.println("Картны хариулт: " + card.getAnswer() + "\n");
+
+                                    System.out.println("1. Асуултыг нь өөрчлөх");
+                                    System.out.println("2. Хариултыг нь өөрчлөх");
+                                    System.out.println("0. Буцах\n");
+
+                                    System.out.print("Таны сонголт: ");
+                                    userChoice = scanner.nextLine();
+
+                                    if (userChoice.equals("1")) {
+
+                                        System.out.print("\nШинэ асуулт: ");
+                                        card.editQuestion(scanner.nextLine());
+
+                                    } else if (userChoice.equals("2")) {
+
+                                        System.out.print("\nШинэ хариулт: ");
+                                        card.editAnswer(scanner.nextLine());
+
+                                    } else if (userChoice.equals("0")) {
+                                        break;
+                                    } else {
+                                        System.out.println("Та меню-ээс сонгоно уу!");
+                                    }
+                                }
+
+                            } else if (userChoice.equals("0"))
+                                break;
+                            else {
+                                System.out.print("\033[H\033[2J");
+                                System.out.println("Та менюнээс сонголтоо хийнэ үү!");
+                            }
+                        }
+
+                    }
+                    // 3. Карт устгах
+                    else if (userChoice.equals("3")) {
+
+                    }
                     // 0. Буцах
                     else if (userDeckChoice.equals("0")) {
                         // break;

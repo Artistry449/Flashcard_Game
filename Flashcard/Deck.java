@@ -39,6 +39,7 @@ public class Deck implements Deck_inter {
     }
 
     public void printAllCards() {
+        System.out.println("Энэ ширээний картнууд:");
         for (int i = 0; i < cards.size(); i++) {
             System.out.println("~ " + cards.get(i).getQuestion());
         }
@@ -50,5 +51,13 @@ public class Deck implements Deck_inter {
 
     public void fetchCards() {
 
+    }
+
+    public Card findCard(String cardQuestion) {
+        for (Card card : cards) {
+            if (card.getQuestion().equals(cardQuestion))
+                return card;
+        }
+        return null;
     }
 }
