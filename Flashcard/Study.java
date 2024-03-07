@@ -20,7 +20,8 @@ public class Study implements App {
             return;
         } else {
             deckOrganizer.printAllDecks();
-            System.out.println("A: Буцах");
+            System.out.println("A: Шинэ ширээ үүсгэх");
+            System.out.println("B: Буцах");
         }
     }
 

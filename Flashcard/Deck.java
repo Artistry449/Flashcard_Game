@@ -35,7 +35,10 @@ public class Deck implements Deck_inter {
     }
 
     public void deleteCard(String cardName) {
-        // cards.remove();
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i).getQuestion().equals(cardName))
+                cards.remove(i);
+        }
     }
 
     public void printAllCards() {

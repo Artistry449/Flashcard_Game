@@ -1,6 +1,6 @@
-Deck2/question976=answer1
-Deck2/question1=answer1
-Deck2/question1=answer1
+Duck/shine asuult=shine hariult
+Duck/mongol=mongol2
+Duck/ymr negen asuult=ymr negen hariult
 Deck3/question1=answer1
 Deck3/question1=answer1
 Deck3/question1=answer1

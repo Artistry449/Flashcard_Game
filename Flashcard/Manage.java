@@ -37,7 +37,7 @@ public class Manage implements App {
         System.out.println("1. Ширээний нэрийг өөрчлөх");
         System.out.println("2. Ширээг устгах");
         System.out.println("3. Картнуудыг нь засах");
-        System.out.println("0. Back");
+        System.out.println("\n0. Back");
     }
 
     public void insideCardMenu(String deckName) {
@@ -95,7 +95,7 @@ public class Manage implements App {
 
                     userChoice = scanner.nextLine();
 
-                    deckOrganizer.findDeck(userDeckChoice).editName(userChoice);
+                    deck.editName(userChoice);
 
                     System.out.println("Ширээний нэр амжилттай солигдлоо!");
                 }
@@ -137,7 +137,7 @@ public class Manage implements App {
                         System.out.print("Та асуултны хариултыг нь оруулна уу уу: ");
                         String answer = scanner.nextLine();
 
-                        deckOrganizer.findDeck(userDeckChoice).addCard(new Card(question, answer));
+                        deck.addCard(new Card(question, answer));
 
                         System.out.println("Уг ширээ рүү шинэ карт амжилттай нэмэгдлээ!\n");
                     }
@@ -146,14 +146,15 @@ public class Manage implements App {
                     else if (userChoice.equals("2")) {
                         System.out.print("\033[H\033[2J");
                         for (;;) {
+                            System.out.print("\033[H\033[2J");
 
-                            deckOrganizer.findDeck(userDeckChoice).printAllCards();
+                            deck.printAllCards();
                             System.out.println("\n0: Буцах");
 
                             System.out.print("\nТаны сонголт(Картны нэрийг эсвэл меню-ээс сонгоно уу): ");
                             userChoice = scanner.nextLine();
 
-                            Card card = deckOrganizer.findDeck(userDeckChoice).findCard(userChoice);
+                            Card card = deck.findCard(userChoice);
                             if (card != null) {
                                 // System.out.print("\033[H\033[2J");
 
@@ -175,10 +176,14 @@ public class Manage implements App {
                                         System.out.print("\nШинэ асуулт: ");
                                         card.editQuestion(scanner.nextLine());
 
+                                        // deckOrganizer.optimizeCardsToItsDeck(deck);
+
                                     } else if (userChoice.equals("2")) {
 
                                         System.out.print("\nШинэ хариулт: ");
                                         card.editAnswer(scanner.nextLine());
+
+                                        // deckOrganizer.optimizeCardsToItsDeck(deck);
 
                                     } else if (userChoice.equals("0")) {
                                         break;
@@ -198,6 +203,19 @@ public class Manage implements App {
                     }
                     // 3. Карт устгах
                     else if (userChoice.equals("3")) {
+                        System.out.print("\033[H\033[2J");
+
+                        deck.printAllCards();
+                        System.out.println("\n0: Буцах\n");
+
+                        System.out.print("Таны сонголт: ");
+                        userChoice = scanner.nextLine();
+
+                        if (deck.findCard(userChoice) != null) {
+                            deck.deleteCard(userChoice);
+
+                            System.out.println("Карт амжилттай устгагдлаа!");
+                        }
 
                     }
                     // 0. Буцах
