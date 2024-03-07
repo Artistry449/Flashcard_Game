@@ -1,8 +1,9 @@
-English Words/apple=alim
+English Words/appleee=alim
 English Words/elephant=zaan
 English Words/tiger=bar
 English Words/dragon=luu
-English Words/moon=sar
+English Words/orange=jurj
+English Words/some word=some answer
 Daily words/Sun=nar
 Daily words/check=shalgah
 Daily words/dog=nohoi

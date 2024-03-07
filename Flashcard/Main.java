@@ -34,16 +34,12 @@ public class Main {
             System.out.print("\nТаны сонголт: ");
             userChoice = scanner.nextInt();
 
-            if (userChoice == 1) {
-                // Study
-                main.apps[1].start();
-            } else if (userChoice == 2) {
-                // Manage
-                main.apps[2].start();
-            } else if (userChoice == 0) {
+            if (userChoice == 0) {
                 System.out.println("\nBye Bye!\n");
                 break;
             }
+
+            main.apps[userChoice].start();
         }
     }
 }
